@@ -1,4 +1,6 @@
 class ItemsController < ApplicationController
+  respond_to :html, :js
+
   def create
     @list = List.find(params[:list_id])
     @items = @list.items
@@ -14,6 +16,22 @@ class ItemsController < ApplicationController
       render :new
     end
 
+  end
+
+  def destroy
+    @list = List.find(params[:list_id])
+    @item = Item.find(params[:id])
+
+    if @item.destroy
+      flash[:notice] = "Item was marked complete."
+    else
+      flash[:error] = "Something went wrong and your item was not marked complete. Please try again."
+    end
+
+    respond_with(@item) do |format|
+      format.html { redirect_to [@list] }
+      format.js
+    end
   end
 
   private

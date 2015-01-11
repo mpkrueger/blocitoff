@@ -2,7 +2,7 @@ class ListsController < ApplicationController
   before_action :authenticate_user!
 
   def show
-    @list = List.find(params[:id])
+    @list = current_user.list
     @items = @list.items
   end
 
@@ -11,7 +11,7 @@ class ListsController < ApplicationController
   end
 
   def create
-    @list = List.new(list_params)
+    @list = current_user.build_list
     if @list.save
       flash[:notice] = "List was saved."
       redirect_to @list

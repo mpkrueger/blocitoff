@@ -1,0 +1,7 @@
+<h4>Add an Item:</h4>
+
+<%= form_for [list, list.items.new], method: :create do |f| %>
+  Item:
+  <%= f.text_area :name %>
+  <%= f.submit "Create item" %>
+<% end %>

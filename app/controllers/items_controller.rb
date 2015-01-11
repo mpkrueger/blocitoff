@@ -30,6 +30,7 @@ class ItemsController < ApplicationController
 
     respond_with(@item) do |format|
       format.html { redirect_to [@list] }
+      format.js
     end
   end
 

@@ -1,5 +1,11 @@
-<p><%= item.name %></p>
+<%= content_tag :div, class: 'media', id: "item-#{item.id}" do %>
+  <div class="media-body">
+    <p><%= item.name %></p>
 
-<p><%= item.days_left %> days left</p>
+    <p><%= item.days_left %> days left</p>
 
-<%= link_to "", [item.list, item], method: :Delete, class: 'glyphicon glyphicon-ok', remote: true %>
+    <%= link_to "", [item.list, item], method: :delete, class: 'glyphicon glyphicon-ok', remote: true %>
+
+  </div>
+
+<% end %>

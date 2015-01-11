@@ -5,6 +5,7 @@ gem 'rails', '4.1.7'
 gem 'bootstrap-sass'
 gem 'devise'
 gem 'figaro', '1.0'
+gem 'faker'
 
 group :test do
   gem 'rspec-rails', '~> 3.1.0'

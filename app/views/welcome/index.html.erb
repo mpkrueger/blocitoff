@@ -1,2 +1,15 @@
-<h1>Welcome to Blocitoff - To-Do's for Today</h1>
-<%= link_to "Create a To-Do List", new_list_path, class: 'btn btn-success' %>
+<br/>
+<div class="jumbotron">
+  <% if current_user %>
+    <% if current_user.list %>
+      <%= link_to "My To-Do List", [current_user.list], class: 'btn btn-success' %>
+    <% else %>
+      <h1>Blocitoff</h1>
+      <h4>Blocitoff will help you accomplish your goals. Create a list and add the items that you'd like to achieve.</h4>
+      <%= link_to "Create a To-Do List", new_list_path, class: "btn btn-success" %>
+    <% end %>
+  <% else %>
+      <h1>Blocitoff</h1>
+      <h2>A self-destructing to-do list to keep you focused on the things that really matter.</h2>
+  <% end %>
+</div>
